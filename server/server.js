@@ -1,14 +1,6 @@
-import env from 'node-env-file';
 import express from 'express';
-import path from 'path';
 import appRoutes from 'server/routes';
 import 'server/model';
-
-env(path.resolve(__dirname,
-  process.env.NODE_ENV === 'production'
-    ? '../.env'
-    : '../.test.env'
-));
 
 const app = express();
 
