@@ -7,7 +7,11 @@ const fs = require('fs');
 const includeFileExtension = /\.jsx?$/;
 const excludeFile = /node_modules/;
 
-env(path.resolve(__dirname, '.env'));
+env(path.resolve(__dirname,
+  process.env.NODE_ENV === 'production'
+    ? '../.env'
+    : '../.test.env'
+));
 
 
 function getFiles(dir, files_) {
