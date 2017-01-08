@@ -1,11 +1,9 @@
 import api from 'server/routes/api';
+import dist from 'server/routes/dist';
 
 export default (app) => {
   api(app);
-
-  app.get('/', (req, res) => {
-    res.send('OK').end();
-  });
+  dist(app);
 
   return app;
 };

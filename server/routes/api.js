@@ -1,11 +1,5 @@
+import authorization from 'server/routes/authorization';
+
 export default (app) => {
-  app.use((req, res, next) => {
-    const authToken = req.headers.authorization;
-
-    if (authToken !== 'abc') {
-      return res.status(401).end();
-    }
-
-    return next();
-  });
+  app.use('/api', authorization(app));
 };
