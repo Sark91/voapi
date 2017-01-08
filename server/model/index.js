@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 export default mongoose.createConnection(
   process.env.DB_HOST,
   process.env.DB_NAME,
