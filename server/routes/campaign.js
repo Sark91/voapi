@@ -13,16 +13,8 @@ export default () => (req, res) => {
 
   const newCampaign = new Campaign(req.body);
 
-  console.log(req.body, newCampaign);
-
   newCampaign.save()
-    .then((campaignError, campaign) => {
-      if (campaignError) {
-        return sendError(res, campaignError);
-      }
-
-      console.log('saved', campaign);
-
+    .then((campaign) => {
       const promises = [];
 
       for (let i=0; i < size; i++) {
@@ -38,5 +30,6 @@ export default () => (req, res) => {
       return Promise.all(promises)
         .then(() => sendSuccess(res))
         .catch((error) => sendError(res, error));
-    });
+    })
+    .catch(error => sendError(res, error));
 };
