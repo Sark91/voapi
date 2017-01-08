@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+// import Voucher from 'server/model/Voucher';
 // import _ from 'lodash';
 
 const discountType = {
@@ -33,7 +34,7 @@ const campaignSchema = new mongoose.Schema({
 
 const Campaign = mongoose.model('Campaign', campaignSchema);
 
-Voucher.pre('save', function (next) {
+campaignSchema.pre('save', function (next) {
   // @todo update all vouchers!
   next();
 });
