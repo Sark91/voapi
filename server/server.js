@@ -15,7 +15,7 @@ const server = (serverStartCb = () => {}) => {
     const { address, port } = serverInstance.address();
 
     // eslint-disable-next-line no-console
-    console.log(`App listening at http://${address}:${port}`);
+    // console.log(`App listening at http://${address}:${port}`);
 
     dbConnection(serverStartCb);
   });
