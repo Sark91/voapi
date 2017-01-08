@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "eslint": "NODE_PATH=. ./node_modules/.bin/eslint --ignore-path .gitignore .",
-    "test": "NODE_PATH=. ./node_modules/.bin/mocha --compilers js:babel-register test/* test/**/*",
+    "test": "NODE_PATH=. ./node_modules/.bin/mocha --compilers js:babel-register test/* test/**/* test/setup.js",
     "build": "NODE_PATH=. PROD_ENV=1 NODE_ENV=production ./node_modules/.bin/webpack -p",
     "server": "NODE_PATH=. NODE_ENV=production node ./server/server.babel.js",
     "start": "npm run server",
