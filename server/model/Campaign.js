@@ -9,25 +9,27 @@ const discountType = {
 
 const voucherType = {
   DISPOSABLE: 'DISPOSABLE',
-  'REUSABLE': 'REUSABLE',
+  REUSABLE: 'REUSABLE',
 };
 
 const campaignSchema = new mongoose.Schema({
-  prefix: String,
+  prefix: { type: String, required: true },
   vouchers: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Voucher',
   }],
-  discount: Number,
+  discount: { type: Number, required: true },
   discountType: {
     type: String,
     enum: Object.keys(discountType),
+    default: discountType.QUOTA,
   },
   voucherType: {
     type: String,
     enum: Object.keys(voucherType),
+    default: voucherType.DISPOSABLE,
   },
-  useRemain: Number,
+  useRemain: { type: Number, default: 1 },
   validFrom: Date,
   validTo: Date,
 });

@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import _ from 'lodash';
 
 import { discountType, voucherType } from 'server/model/Campaign';
 
@@ -25,10 +24,10 @@ const voucherSchema = new mongoose.Schema({
 
 const Voucher = mongoose.model('Voucher', voucherSchema);
 
-voucherSchema.pre('save', function (next) {
-  this.voucherId = _.uniqueId(Date.now());
-  next();
-});
+// voucherSchema.pre('save', function (next) {
+//   this.voucherId = _.uniqueId(Date.now());
+//   next();
+// });
 
 export default Voucher;
 export {
