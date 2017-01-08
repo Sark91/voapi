@@ -2,6 +2,7 @@ import env from 'node-env-file';
 import express from 'express';
 import path from 'path';
 import appRoutes from 'server/routes';
+import 'server/model';
 
 env(path.resolve(__dirname, '../.env'));
 
