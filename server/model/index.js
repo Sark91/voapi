@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 
+mongoose.Promise = global.Promise;
+
 const connection = (onConnectCb) => mongoose.connect(
   `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT || 27017}/${process.env.DB_NAME}`,
   {
