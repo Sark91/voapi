@@ -1,14 +1,22 @@
 import mongoose from 'mongoose';
-import _ from 'lodash';
+// import _ from 'lodash';
 
-import { discountType, voucherType } from 'server/model/Campaign';
+const discountType = {
+  QUOTA: 'QUOTA',
+  PERCENTAGE: 'PERCENTAGE',
+};
 
-const voucherSchema = new mongoose.Schema({
-  campain: {
+const voucherType = {
+  DISPOSABLE: 'DISPOSABLE',
+  'REUSABLE': 'REUSABLE',
+};
+
+const campaignSchema = new mongoose.Schema({
+  prefix: String,
+  vouchers: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Campaign',
-  },
-  voucherId: String,
+    ref: 'Voucher',
+  }],
   discount: Number,
   discountType: {
     type: String,
@@ -23,14 +31,14 @@ const voucherSchema = new mongoose.Schema({
   validTo: Date,
 });
 
-const Voucher = mongoose.model('Voucher', voucherSchema);
+const Campaign = mongoose.model('Campaign', campaignSchema);
 
 Voucher.pre('save', function (next) {
-  this.voucherId = _.uniqueId(Date.now());
+  // @todo update all vouchers!
   next();
 });
 
-export default Voucher;
+export default Campaign;
 export {
   discountType,
   voucherType,
