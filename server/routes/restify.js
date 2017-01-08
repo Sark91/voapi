@@ -4,10 +4,10 @@ import restify from 'express-restify-mongoose';
 import Campaign from 'server/model/Campaign';
 import Voucher from 'server/model/Voucher';
 
-export default () => {
+export default (app) => {
   const router = Router();
-  restify.serve(router, Campaign);
-  restify.serve(router, Voucher);
+  restify.serve(app, Campaign);
+  restify.serve(app, Voucher);
   
   return router;
 };
