@@ -18,8 +18,12 @@ export default () => (req, res) => {
       const promises = [];
 
       for (let i=0; i < size; i++) {
+        const voucherData = {...campaign._doc};
+
+        delete voucherData._id;
+
         const newVoucher = new Voucher({
-          ...req.body,
+          ...voucherData,
           voucherId: `${campaign.prefix}_${_.uniqueId(Date.now())}`,
           campaign,
         });
