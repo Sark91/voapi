@@ -9,7 +9,7 @@
     "test": "NODE_PATH=. ./node_modules/.bin/mocha --compilers js:babel-register test/* test/**/* test/setup.js",
     "build": "NODE_PATH=. PROD_ENV=1 NODE_ENV=production ./node_modules/.bin/webpack -p",
     "server": "NODE_PATH=. NODE_ENV=production node ./server/server.babel.js",
-    "start": "npm run server",
+    "start": "concurrently --kill-others \"npm run build-dev\" \"npm run server-dev\"",
     "eslint-dev": "NODE_PATH=. ./node_modules/.bin/esw --ignore-path .gitignore --watch .",
     "test-dev": "NODE_PATH=. npm run test -- --watch",
     "build-dev": "NODE_PATH=. NODE_ENV=dev ./node_modules/.bin/webpack --colors --watch",

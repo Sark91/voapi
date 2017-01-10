@@ -18,7 +18,7 @@ OrderSummaryProduct.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  priceWithDiscount: PropTypes.number,
+  priceWithDiscount: PropTypes.string,
 };
 
 export default OrderSummaryProduct;
