@@ -9,8 +9,8 @@ const excludeFile = /node_modules/;
 
 env(path.resolve(__dirname,
   process.env.NODE_ENV === 'production'
-    ? '../.env'
-    : '../.test.env'
+    ? '.env'
+    : '.test.env'
 ));
 
 
@@ -47,10 +47,14 @@ const moduleExport = {
         loaders: ['react-hot', 'babel-loader'],
         exclude: excludeFile,
       },
+      {
+        test: /\.scss$/,
+        loaders: ['style-loader', 'css-loader', 'sass-loader'],
+      },
     ],
   },
   resolve: {
-    extensions: ['', '.webpack.js', '.web.js', '.coffee', '.js', '.json', '.jade', '.html', '.less', '.css'],
+    extensions: ['', '.webpack.js', '.web.js', '.coffee', '.js', '.json', '.jade', '.html', '.scss', '.css'],
     modulesDirectories: ['node_modules'],
     root: [path.join(__dirname)],
   },
@@ -72,6 +76,10 @@ if (process.env.NODE_ENV === 'production') {
       loader: 'babel',
       // query: require('.babelrc')
       query: JSON.parse(fs.readFileSync('.babelrc', { encoding: 'utf-8' })),
+    },
+    {
+      test: /\.scss$/,
+      loaders: ['style-loader', 'css-loader', 'sass-loader'],
     },
   ];
 

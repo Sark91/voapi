@@ -33,4 +33,4 @@ export default Voucher;
 export {
   discountType,
   voucherType,
-}
+};

@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import Campaign from 'server/model/Campaign';
 import Voucher from 'server/model/Voucher';
-import config from 'config'
+import config from 'config';
 import { sendError, sendSuccess } from 'server/sendResponse';
 
 export default () => (req, res) => {
@@ -17,8 +17,8 @@ export default () => (req, res) => {
     .then((campaign) => {
       const promises = [];
 
-      for (let i=0; i < size; i++) {
-        const voucherData = {...campaign._doc};
+      for (let i = 0; i < size; i++) {
+        const voucherData = { ...campaign._doc };
 
         delete voucherData._id;
 
@@ -33,7 +33,7 @@ export default () => (req, res) => {
 
       return Promise.all(promises)
         .then(() => sendSuccess(res))
-        .catch((error) => sendError(res, error));
+        .catch(error => sendError(res, error));
     })
     .catch(error => sendError(res, error));
 };

@@ -4,9 +4,9 @@ import { sendError, sendSuccess } from 'server/sendResponse';
 
 export default () => (req, res) => {
   Voucher
-    .find({ _id: req.params.voucherId})
+    .find({ _id: req.params.voucherId })
     .then(docs => docs[0])
-    .then(doc => {
+    .then((doc) => {
       const now = Date.now();
       if (
         (doc.validFrom && doc.validFrom.getTime() > now) ||
@@ -19,13 +19,13 @@ export default () => (req, res) => {
         return sendError(res, 'voucher is not usable', 400);
       }
 
-      doc.useRemain = doc.useRemain - 1;
+      doc.useRemain -= 1;
 
       return doc
         .save()
         .then(() => sendSuccess(res))
-        .catch(error => {
-          sendError(res, error)
+        .catch((error) => {
+          sendError(res, error);
         });
     });
-}
+};

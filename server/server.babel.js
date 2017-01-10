@@ -1,5 +1,5 @@
 const env = require('node-env-file');
-const path =  require('path');
+const path = require('path');
 
 require('babel-register');
 

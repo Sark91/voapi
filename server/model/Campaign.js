@@ -36,7 +36,7 @@ const campaignSchema = new mongoose.Schema({
 
 const Campaign = mongoose.model('Campaign', campaignSchema);
 
-campaignSchema.pre('save', function (next) {
+campaignSchema.pre('save', (next) => {
   // @todo update all vouchers!
   next();
 });
@@ -45,4 +45,4 @@ export default Campaign;
 export {
   discountType,
   voucherType,
-}
+};

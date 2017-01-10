@@ -11,14 +11,21 @@
     "no-restricted-syntax": 0,
     "react/prefer-stateless-function": 0,
     "no-unused-vars": 0,
-    "eol-last": 0
+    "eol-last": 0,
+    "no-mixed-operators" : 0,
+    "react/forbid-prop-types": 0,
+    "consistent-return": 0,
+    "radix": 0,
+    "no-plusplus": 0,
+    "comma-dangle": 0,
+    "arrow-parens": 0,
   },
   "globals": {
     "window": true,
     "document": true,
     "describe": true,
     "it": true,
-    "beforeEach",
-    "afterEach"
+    "beforeEach": true,
+    "afterEach": true
   }
 }

@@ -1,0 +1,14 @@
+.OrderSummary {
+  table {
+    width: 100%;
+    text-align: left;
+
+    tfoot tr th,
+    thead tr th {
+      padding: 10px 0;
+      border: 1px solid black;
+      border-left: none;
+      border-right: none;
+    }
+  }
+}

@@ -6,6 +6,8 @@ import { Provider } from 'react-redux';
 import routes from 'client/routes';
 import reducers from 'client/reducers/all';
 
+import 'client/styles/all';
+
 render((
   <Provider store={reducers} key="provider">
     <Router history={browserHistory}>

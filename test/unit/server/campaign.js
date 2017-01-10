@@ -40,7 +40,7 @@ describe('campaign', () => {
       })
       .expect(200, done);
   });
-  
+
   it('should create vouchers after publish new campaign', (done) => {
     supertest(global.server)
       .post('/api/v1/Campaign')
@@ -54,10 +54,10 @@ describe('campaign', () => {
       .then(() => supertest(global.server)
         .get('/api/v1/Vaoucher/count')
         .set('Authorization', 'abc')
-        .expect(200)
+        .expect(200),
       )
       .then(() => Voucher.count())
-      .then((count) => expect(count).to.equal(2))
+      .then(count => expect(count).to.equal(2))
       .then(() => done())
       .catch(error => done(error));
   });

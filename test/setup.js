@@ -10,6 +10,6 @@ beforeEach((done) => {
 
 afterEach((done) => {
   global.server.getDbConnection().dropDatabase(
-    () => global.server.cleanConnection(done)
+    () => global.server.cleanConnection(done),
   );
 });

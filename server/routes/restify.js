@@ -8,6 +8,6 @@ export default (app) => {
   const router = Router();
   restify.serve(app, Campaign);
   restify.serve(app, Voucher);
-  
+
   return router;
 };

@@ -17,10 +17,10 @@ const server = (serverStartCb = () => {}) => {
 
   serverInstance.cleanConnection = (cb) => {
     dbConnection.disconnect(
-      () => serverInstance.close(cb)
+      () => serverInstance.close(cb),
     );
   };
-  
+
   serverInstance.getDbConnection = dbConnection.getConnection;
 
   return serverInstance;

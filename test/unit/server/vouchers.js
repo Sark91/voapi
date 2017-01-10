@@ -16,7 +16,7 @@ describe('vouchers', () => {
       .then(() => supertest(global.server)
         .get('/api/v1/Vaoucher')
         .set('Authorization', 'abc')
-        .expect(200)
+        .expect(200),
       )
       .then(() => Voucher.find({}))
       .then((docs) => {
@@ -42,7 +42,7 @@ describe('vouchers', () => {
       .then(() => supertest(global.server)
         .get('/api/v1/Voucher')
         .set('Authorization', 'abc')
-        .expect(200)
+        .expect(200),
       )
       .then(() => Voucher.find({}))
       .then((docs) => {
@@ -51,10 +51,10 @@ describe('vouchers', () => {
         expect(docs[0].voucherId).to.match(/^TEST/);
         return docs[0];
       })
-      .then((voucher) => supertest(global.server)
+      .then(voucher => supertest(global.server)
         .post(`/api/v1/burn/${voucher._id}`)
         .set('Authorization', 'abc')
-        .expect(400)
+        .expect(400),
       )
       .then(() => done())
       .catch(error => done(error));
@@ -74,7 +74,7 @@ describe('vouchers', () => {
       .then(() => supertest(global.server)
         .get('/api/v1/Voucher')
         .set('Authorization', 'abc')
-        .expect(200)
+        .expect(200),
       )
       .then(() => Voucher.find({}))
       .then((docs) => {
@@ -83,10 +83,10 @@ describe('vouchers', () => {
         expect(docs[0].voucherId).to.match(/^TEST/);
         return docs[0];
       })
-      .then((voucher) => supertest(global.server)
+      .then(voucher => supertest(global.server)
         .post(`/api/v1/burn/${voucher._id}`)
         .set('Authorization', 'abc')
-        .expect(400)
+        .expect(400),
       )
       .then(() => done())
       .catch(error => done(error));
@@ -100,13 +100,13 @@ describe('vouchers', () => {
         size: 1,
         discount: 10,
         prefix: 'TEST',
-        useRemain: 0
+        useRemain: 0,
       })
       .expect(200)
       .then(() => supertest(global.server)
         .get('/api/v1/Voucher')
         .set('Authorization', 'abc')
-        .expect(200)
+        .expect(200),
       )
       .then(() => Voucher.find({}))
       .then((docs) => {
@@ -115,10 +115,10 @@ describe('vouchers', () => {
         expect(docs[0].voucherId).to.match(/^TEST/);
         return docs[0];
       })
-      .then((voucher) => supertest(global.server)
+      .then(voucher => supertest(global.server)
         .post(`/api/v1/burn/${voucher._id}`)
         .set('Authorization', 'abc')
-        .expect(400)
+        .expect(400),
       )
       .then(() => done())
       .catch(error => done(error));
@@ -139,7 +139,7 @@ describe('vouchers', () => {
       .then(() => supertest(global.server)
         .get('/api/v1/Voucher')
         .set('Authorization', 'abc')
-        .expect(200)
+        .expect(200),
       )
       .then(() => Voucher.find({}))
       .then((docs) => {
@@ -148,10 +148,10 @@ describe('vouchers', () => {
         expect(docs[0].voucherId).to.match(/^TEST/);
         return docs[0];
       })
-      .then((voucher) => supertest(global.server)
+      .then(voucher => supertest(global.server)
         .post(`/api/v1/burn/${voucher._id}`)
         .set('Authorization', 'abc')
-        .expect(200)
+        .expect(200),
       )
       .then(() => Voucher.find({}))
       .then(docs => expect(docs[0]).to.have.property('useRemain', 0))
